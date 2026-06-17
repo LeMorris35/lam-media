@@ -39,6 +39,14 @@ export const site = {
 } as const;
 
 /**
+ * Where the "Book a Free Consult" / CTA buttons point:
+ * your scheduler if set, otherwise the contact section on the page.
+ * Defined here (a plain module) so both server and client components can use it.
+ */
+export const bookHref = site.bookingUrl || "#contact";
+export const bookExternal = Boolean(site.bookingUrl);
+
+/**
  * Prefix a file in the /public folder with the deploy base path.
  * On GitHub Pages the site lives under /<repo-name>, so images need that
  * prefix. Locally the base path is empty, so this changes nothing.

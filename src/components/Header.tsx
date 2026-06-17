@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { site, asset } from "@/lib/site";
+import { site, asset, bookHref, bookExternal } from "@/lib/site";
 import { Menu, X, ArrowRight } from "./icons";
 
 const navLinks = [
@@ -12,11 +12,6 @@ const navLinks = [
   { label: "Pricing", href: "#pricing" },
   { label: "About", href: "#about" },
 ];
-
-// Where the "Book a Free Consult" buttons point: your scheduler if set,
-// otherwise the contact section at the bottom of the page.
-export const bookHref = site.bookingUrl || "#contact";
-export const bookExternal = Boolean(site.bookingUrl);
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);

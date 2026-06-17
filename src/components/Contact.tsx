@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { site } from "@/lib/site";
-import { bookHref, bookExternal } from "./Header";
+import { bookHref, bookExternal } from "@/lib/site";
 import { Mail, Phone, MapPin, Calendar, ArrowRight, Check } from "./icons";
 
 type Status = "idle" | "submitting" | "success" | "error";

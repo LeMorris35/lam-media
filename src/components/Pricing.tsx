@@ -1,5 +1,5 @@
 import SectionHeading from "./SectionHeading";
-import { bookHref, bookExternal } from "./Header";
+import { bookHref, bookExternal } from "@/lib/site";
 import { Check, ArrowRight } from "./icons";
 
 /*
