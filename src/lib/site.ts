@@ -31,6 +31,12 @@ export const site = {
     facebook: "",
     instagram: "",
   },
+
+  // Stripe Payment Links (Stripe-hosted checkout) — used on the /pay page.
+  payments: {
+    carePlan: "https://buy.stripe.com/dRmbJ04Ne9F60kHf9D9EI01", // $50/mo care plan
+    buildFee: "https://buy.stripe.com/9B68wOcfGg3ud7t5z39EI00", // $150 one-time build
+  },
 } as const;
 
 /**

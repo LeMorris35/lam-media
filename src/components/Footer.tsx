@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { site, asset } from "@/lib/site";
 import { Mail, Phone, MapPin } from "./icons";
 
@@ -76,6 +77,11 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
+              <li>
+                <Link href="/pay" className="transition-colors hover:text-white">
+                  Make a Payment
+                </Link>
+              </li>
             </ul>
           </div>
 
