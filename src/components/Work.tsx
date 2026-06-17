@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SectionHeading from "./SectionHeading";
 import { bookHref, bookExternal } from "./Header";
 import { ArrowRight } from "./icons";
@@ -9,29 +10,25 @@ type Project = {
   // Per-industry color theme for the mini preview
   primary: string;
   tint: string;
+  // Link to the live demo page, if it's been built yet
+  href?: string;
 };
 
 const projects: Project[] = [
   {
-    name: "Maple & Main Coffee Co.",
+    name: "Cobble & Bean Coffee Co.",
     category: "Café & Coffee Shop",
-    description: "A warm, welcoming site with the menu, hours, and an order-ahead button front and center.",
+    description: "A warm, welcoming site with the menu, hours, and location front and center.",
     primary: "#b45309",
     tint: "#fef3c7",
+    href: "/demos/cafe",
   },
   {
-    name: "Evergreen Lawn & Landscape",
+    name: "Cedarline Lawn & Landscape",
     category: "Home & Outdoor Services",
-    description: "Built to turn visitors into quote requests, with clear services and a simple booking form.",
+    description: "Built to turn visitors into quote requests, with online booking and clear services.",
     primary: "#15803d",
     tint: "#dcfce7",
-  },
-  {
-    name: "Heartland Family Dental",
-    category: "Healthcare & Clinics",
-    description: "A clean, trustworthy design with easy appointment booking and new-patient info.",
-    primary: "#0d9488",
-    tint: "#ccfbf1",
   },
 ];
 
@@ -70,6 +67,43 @@ function MiniPreview({ name, primary, tint }: Project) {
   );
 }
 
+function ProjectCard({ project }: { project: Project }) {
+  const inner = (
+    <>
+      <div className="relative">
+        <MiniPreview {...project} />
+        <span className="absolute right-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-semibold text-slate shadow-sm backdrop-blur">
+          Concept
+        </span>
+      </div>
+      <div className="p-6">
+        <p className="text-xs font-bold uppercase tracking-wider text-brand">{project.category}</p>
+        <h3 className="mt-1.5 text-lg font-bold text-ink">{project.name}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-slate">{project.description}</p>
+        {project.href ? (
+          <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand">
+            View live demo
+            <ArrowRight className="h-4 w-4" />
+          </span>
+        ) : (
+          <span className="mt-4 inline-block text-sm font-medium text-slate/70">Demo coming soon</span>
+        )}
+      </div>
+    </>
+  );
+
+  const cardClass =
+    "group block overflow-hidden rounded-2xl border border-line bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-ink/5";
+
+  return project.href ? (
+    <Link href={project.href} className={cardClass}>
+      {inner}
+    </Link>
+  ) : (
+    <div className={cardClass}>{inner}</div>
+  );
+}
+
 export default function Work() {
   return (
     <section id="work" className="border-y border-line bg-mist py-20 sm:py-28">
@@ -77,31 +111,12 @@ export default function Work() {
         <SectionHeading
           eyebrow="Our Work"
           title="Designs that mean business"
-          subtitle="Concept designs that show our range and style. Your project will be built uniquely for your business — these are just a taste of what's possible."
+          subtitle="Concept designs that show our range and style. Click in for a full, working sample — your project would be built uniquely for your business."
         />
 
-        <div className="mt-14 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto mt-14 grid max-w-3xl gap-7 sm:grid-cols-2">
           {projects.map((project) => (
-            <article
-              key={project.name}
-              className="group overflow-hidden rounded-2xl border border-line bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-ink/5"
-            >
-              <div className="relative">
-                <MiniPreview {...project} />
-                <span className="absolute right-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-semibold text-slate shadow-sm backdrop-blur">
-                  Concept
-                </span>
-              </div>
-              <div className="p-6">
-                <p className="text-xs font-bold uppercase tracking-wider text-brand">
-                  {project.category}
-                </p>
-                <h3 className="mt-1.5 text-lg font-bold text-ink">{project.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate">
-                  {project.description}
-                </p>
-              </div>
-            </article>
+            <ProjectCard key={project.name} project={project} />
           ))}
         </div>
 
