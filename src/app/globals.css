@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+/*
+  LAM Media & Web Company — design system
+  These are your brand "design tokens". Defining them here once means you can
+  use classes like `bg-brand`, `text-ink`, `border-line` anywhere in the site,
+  and change the whole look by editing a single value here.
+*/
+@theme {
+  /* Brand blue (the slash in your logo + "Digital Growth") */
+  --color-brand: #1c84d6;
+  --color-brand-dark: #0d5fa6;
+  --color-brand-light: #4aa6ea;
+
+  /* Dark navy used in the banner's angled panels */
+  --color-ink: #1b2330;
+  --color-ink-2: #283142;
+
+  /* Supporting neutrals */
+  --color-slate: #59647a;
+  --color-mist: #f3f6fb;
+  --color-line: #e5eaf1;
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-ink);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+/* When jumping to a section via the nav, leave room for the sticky header */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* A reusable diagonal accent that echoes your logo's slash / banner cuts */
+.clip-diagonal {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 3vw));
+}
