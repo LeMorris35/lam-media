@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { site } from "@/lib/site";
+import { site, asset } from "@/lib/site";
 import { Menu, X, ArrowRight } from "./icons";
 
 const navLinks = [
@@ -42,7 +42,7 @@ export default function Header() {
         <a href="#top" className="flex items-center" aria-label={site.name}>
           {/* Dark logo variant — readable on the light header background */}
           <Image
-            src="/lam-logo-dark.png"
+            src={asset("/lam-logo-dark.png")}
             alt={site.name}
             width={264}
             height={102}

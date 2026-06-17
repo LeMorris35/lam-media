@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { site } from "@/lib/site";
+import { site, asset } from "@/lib/site";
 import { Mail, Phone, MapPin } from "./icons";
 
 const quickLinks = [
@@ -23,7 +23,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Image
-              src="/lam-logo.png"
+              src={asset("/lam-logo.png")}
               alt={site.name}
               width={264}
               height={102}

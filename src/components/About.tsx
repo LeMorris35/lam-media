@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { site } from "@/lib/site";
+import { site, asset } from "@/lib/site";
 import { Check } from "./icons";
 
 const highlights = [
@@ -16,7 +16,7 @@ export default function About() {
         {/* Image */}
         <div className="overflow-hidden rounded-2xl border border-line bg-white shadow-xl shadow-ink/5">
           <Image
-            src="/lam-banner.png"
+            src={asset("/lam-banner.png")}
             alt={`${site.name} — proudly serving ${site.serviceArea}`}
             width={1942}
             height={809}

@@ -19,6 +19,11 @@ const nextConfig: NextConfig = {
   basePath,
   assetPrefix: basePath || undefined,
   trailingSlash: true,
+  // Expose the base path to component code so images in /public get the
+  // correct /<repo-name> prefix when hosted in a subfolder (GitHub Pages).
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
 };
 
 export default nextConfig;

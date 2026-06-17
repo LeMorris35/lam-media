@@ -37,3 +37,11 @@ export const site = {
     instagram: "",
   },
 } as const;
+
+/**
+ * Prefix a file in the /public folder with the deploy base path.
+ * On GitHub Pages the site lives under /<repo-name>, so images need that
+ * prefix. Locally the base path is empty, so this changes nothing.
+ */
+export const asset = (path: string) =>
+  `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${path}`;
