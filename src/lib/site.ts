@@ -17,9 +17,8 @@ export const site = {
   city: "Clinton, MO",
   serviceArea: "Clinton, MO & the greater Henry County area",
 
-  // TODO: replace these with your real business contact info
-  email: "hello@lammediaweb.com",
-  phone: "(660) 555-0123",
+  email: "lammediaweb@outlook.com",
+  phone: "(660) 351-3634",
 
   // TODO: paste your free Calendly (or other scheduler) link here.
   // Leave it as "" for now — the "Book a Free Consult" buttons will simply
