@@ -29,6 +29,7 @@ const projects: Project[] = [
     description: "Built to turn visitors into quote requests, with online booking and clear services.",
     primary: "#15803d",
     tint: "#dcfce7",
+    href: "/demos/lawn",
   },
 ];
 
