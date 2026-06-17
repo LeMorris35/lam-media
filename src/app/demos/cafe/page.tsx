@@ -1,70 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Playfair_Display } from "next/font/google";
-import ConceptBanner from "@/components/ConceptBanner";
 import { MapPin, Phone, ArrowRight } from "@/components/icons";
-
-// A warm display serif for headings — gives this demo its own identity,
-// distinct from the LAM brand site.
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["600", "700", "800"],
-  variable: "--font-playfair",
-});
+import CoffeeCup from "./CoffeeCup";
+import TodayHours from "./TodayHours";
+import { cafe, menu, hours, formatPrice } from "./data";
 
 const serif = "[font-family:var(--font-playfair)]";
 
 export const metadata: Metadata = {
   title: "Cobble & Bean Coffee Co. — Concept Demo by LAM Media",
   description:
-    "Sample café website concept built by LAM Media & Web Company to showcase menu, hours, and location designs for small businesses.",
+    "Sample café website concept built by LAM Media & Web Company to showcase menu, hours, location, and online ordering for small businesses.",
 };
-
-const menu = [
-  {
-    name: "Espresso",
-    items: [
-      ["Espresso", "$3.00", "A rich, classic double shot."],
-      ["Cappuccino", "$4.50", "Espresso, steamed milk, airy foam."],
-      ["Latte", "$4.75", "Smooth espresso with silky milk."],
-      ["Mocha", "$5.25", "Espresso, chocolate, steamed milk."],
-      ["Cortado", "$4.25", "Equal parts espresso and warm milk."],
-    ],
-  },
-  {
-    name: "Brewed",
-    items: [
-      ["Drip Coffee", "$2.75", "Our daily small-batch roast."],
-      ["Pour Over", "$4.50", "Hand-poured, single origin."],
-      ["Cold Brew", "$4.75", "Steeped 18 hours, smooth & bold."],
-      ["Nitro Cold Brew", "$5.50", "Creamy, cascading, no dairy."],
-    ],
-  },
-  {
-    name: "Not Coffee",
-    items: [
-      ["Chai Latte", "$4.75", "Spiced black tea & steamed milk."],
-      ["Matcha Latte", "$5.00", "Stone-ground ceremonial matcha."],
-      ["Hot Cocoa", "$3.75", "Real chocolate, house whip."],
-      ["Loose-Leaf Tea", "$3.00", "Ask about today's selection."],
-    ],
-  },
-  {
-    name: "From the Bakery",
-    items: [
-      ["Butter Croissant", "$3.50", "Flaky, baked fresh each morning."],
-      ["Cinnamon Roll", "$4.25", "Warm, gooey, cream-cheese glaze."],
-      ["Blueberry Muffin", "$3.75", "Bursting with real berries."],
-      ["Seasonal Scone", "$3.95", "Rotating flavor — ask our staff."],
-    ],
-  },
-];
-
-const hours = [
-  ["Monday – Friday", "6:30a – 6:00p"],
-  ["Saturday", "7:00a – 6:00p"],
-  ["Sunday", "8:00a – 2:00p"],
-];
 
 const navLinks = [
   ["Menu", "#menu"],
@@ -75,9 +22,7 @@ const navLinks = [
 
 export default function CafeDemo() {
   return (
-    <div className={`${playfair.variable} bg-stone-50 text-stone-800`}>
-      <ConceptBanner />
-
+    <>
       {/* Nav */}
       <header className="sticky top-0 z-40 border-b border-stone-200 bg-stone-50/90 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-5">
@@ -91,12 +36,12 @@ export default function CafeDemo() {
               </a>
             ))}
           </nav>
-          <a
-            href="#menu"
+          <Link
+            href="/demos/cafe/order"
             className="rounded-full bg-amber-700 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-amber-800"
           >
             Order Ahead
-          </a>
+          </Link>
         </div>
       </header>
 
@@ -114,31 +59,31 @@ export default function CafeDemo() {
               Cozy mornings, friendly faces, and coffee roasted right here in the
               shop. Pull up a chair and stay a while.
             </p>
+
+            {/* Live "today's hours" — fills the space and reflects the real day */}
+            <TodayHours />
+
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#menu"
+              <Link
+                href="/demos/cafe/order"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-amber-700 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-amber-800"
               >
-                View the Menu
+                Order Ahead
                 <ArrowRight className="h-5 w-5" />
-              </a>
+              </Link>
               <a
-                href="#visit"
+                href="#menu"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-stone-300 bg-white px-7 py-3.5 text-base font-semibold text-stone-800 transition-colors hover:border-amber-700 hover:text-amber-700"
               >
-                Find Us
+                View the Menu
               </a>
             </div>
           </div>
 
-          {/* Decorative "photo" block */}
-          <div className="relative">
-            <div className="flex aspect-square items-center justify-center rounded-[2rem] bg-gradient-to-br from-amber-700 to-amber-900 shadow-2xl">
-              <span className="text-[9rem] leading-none drop-shadow-lg">☕</span>
-            </div>
-            <div className="absolute -bottom-5 -left-5 rounded-2xl border border-stone-200 bg-white px-5 py-3 shadow-lg">
-              <p className="text-sm text-stone-500">Open today until</p>
-              <p className={`${serif} text-xl font-bold text-stone-900`}>6:00 pm</p>
+          {/* Custom coffee-cup graphic */}
+          <div className="relative mx-auto w-full max-w-sm">
+            <div className="flex aspect-square items-center justify-center rounded-[2.5rem] bg-gradient-to-br from-amber-100 to-amber-200/70 shadow-xl">
+              <CoffeeCup className="h-3/4 w-3/4" />
             </div>
             <div className="absolute -right-3 -top-3 rounded-full border border-stone-200 bg-white px-4 py-2 text-sm font-semibold text-amber-700 shadow-lg">
               ★ Roasted in-house
@@ -158,23 +103,31 @@ export default function CafeDemo() {
           <div className="mt-14 grid gap-x-14 gap-y-12 md:grid-cols-2">
             {menu.map((cat) => (
               <div key={cat.name}>
-                <h3 className={`${serif} mb-5 text-2xl font-bold text-stone-900`}>
-                  {cat.name}
-                </h3>
+                <h3 className={`${serif} mb-5 text-2xl font-bold text-stone-900`}>{cat.name}</h3>
                 <ul className="space-y-4">
-                  {cat.items.map(([item, price, desc]) => (
-                    <li key={item}>
+                  {cat.items.map((item) => (
+                    <li key={item.name}>
                       <div className="flex items-baseline gap-2">
-                        <span className="font-semibold text-stone-900">{item}</span>
+                        <span className="font-semibold text-stone-900">{item.name}</span>
                         <span className="mb-1 flex-1 border-b border-dotted border-stone-300" />
-                        <span className="font-semibold text-amber-700">{price}</span>
+                        <span className="font-semibold text-amber-700">{formatPrice(item.price)}</span>
                       </div>
-                      <p className="text-sm text-stone-500">{desc}</p>
+                      <p className="text-sm text-stone-500">{item.desc}</p>
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
+          </div>
+
+          <div className="mt-14 text-center">
+            <Link
+              href="/demos/cafe/order"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-amber-700 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-amber-800"
+            >
+              Order Ahead for Pickup
+              <ArrowRight className="h-5 w-5" />
+            </Link>
           </div>
         </div>
       </section>
@@ -201,7 +154,6 @@ export default function CafeDemo() {
           {/* Visit */}
           <div id="visit" className="scroll-mt-20 rounded-3xl border border-stone-200 bg-white p-8 shadow-sm">
             <h2 className={`${serif} text-3xl font-extrabold text-stone-900`}>Visit us</h2>
-            {/* Faux map */}
             <div className="relative mt-6 h-36 overflow-hidden rounded-2xl bg-gradient-to-br from-stone-100 to-stone-200">
               <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(#d6d3d1_1px,transparent_1px),linear-gradient(90deg,#d6d3d1_1px,transparent_1px)] [background-size:24px_24px]" />
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -211,11 +163,11 @@ export default function CafeDemo() {
             <div className="mt-6 space-y-3">
               <p className="flex items-start gap-3 text-stone-700">
                 <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-amber-700" />
-                120 Market Street · Your Town, MO
+                {cafe.address}
               </p>
               <p className="flex items-center gap-3 text-stone-700">
                 <Phone className="h-5 w-5 shrink-0 text-amber-700" />
-                (555) 012-3456
+                {cafe.phone}
               </p>
             </div>
           </div>
@@ -256,7 +208,9 @@ export default function CafeDemo() {
           <p className={`${serif} text-2xl font-extrabold text-white`}>
             Cobble <span className="text-amber-500">&amp;</span> Bean
           </p>
-          <p className="mt-3 text-sm text-stone-400">120 Market Street · Your Town, MO · (555) 012-3456</p>
+          <p className="mt-3 text-sm text-stone-400">
+            {cafe.address} · {cafe.phone}
+          </p>
           <div className="mt-8 border-t border-white/10 pt-6 text-sm text-stone-400">
             Website designed &amp; built by{" "}
             <Link href="/" className="font-semibold text-brand-light hover:text-white">
@@ -265,6 +219,6 @@ export default function CafeDemo() {
           </div>
         </div>
       </footer>
-    </div>
+    </>
   );
 }
