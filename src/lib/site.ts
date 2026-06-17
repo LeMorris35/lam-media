@@ -20,15 +20,11 @@ export const site = {
   email: "lammediaweb@outlook.com",
   phone: "(660) 351-3634",
 
-  // TODO: paste your free Calendly (or other scheduler) link here.
-  // Leave it as "" for now — the "Book a Free Consult" buttons will simply
-  // scroll to the contact form until you add a link.
-  bookingUrl: "",
+  // Calendly scheduler — all "Book a Free Consult" buttons open this.
+  bookingUrl: "https://calendly.com/lammediaweb/30min",
 
-  // TODO: create a free form endpoint at https://formspree.io and paste the
-  // URL here so the contact form actually emails you. Until then the form
-  // shows a friendly message instead of sending.
-  formspreeEndpoint: "",
+  // Formspree endpoint — the contact form submits here and emails you.
+  formspreeEndpoint: "https://formspree.io/f/xaqzzvwp",
 
   // TODO: add your social links (leave "" to hide the icon)
   social: {
