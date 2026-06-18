@@ -2,13 +2,6 @@ import SectionHeading from "./SectionHeading";
 import { bookHref, bookExternal } from "@/lib/site";
 import { Check, ArrowRight } from "./icons";
 
-/*
-  PRICING — you start with one package.
-  When you're ready to show a price, set `startingPrice` below, e.g. "$750".
-  Leave it as "" and the card shows "Let's Talk" instead of a number.
-*/
-const startingPrice = ""; // TODO: e.g. "$750"
-
 const features = [
   "Custom, mobile-friendly design",
   "Up to 5 pages (Home, About, Services, etc.)",
@@ -32,7 +25,7 @@ export default function Pricing() {
         <div className="mx-auto mt-14 max-w-lg">
           <div className="relative overflow-hidden rounded-3xl border-2 border-brand bg-white shadow-2xl shadow-brand/10">
             <div className="bg-brand px-8 py-3 text-center text-sm font-bold uppercase tracking-wider text-white">
-              Most Popular
+              🎉 Launch Offer · First 5 Clients
             </div>
 
             <div className="p-8 sm:p-10">
@@ -42,23 +35,20 @@ export default function Pricing() {
                 start bringing in customers.
               </p>
 
-              <div className="mt-6 flex items-end gap-2">
-                {startingPrice ? (
-                  <>
-                    <span className="text-5xl font-extrabold tracking-tight text-ink">
-                      {startingPrice}
-                    </span>
-                    <span className="pb-1.5 text-slate">one-time build</span>
-                  </>
-                ) : (
-                  <span className="text-4xl font-extrabold tracking-tight text-ink">
-                    Let&apos;s Talk
+              <div className="mt-6">
+                <span className="inline-flex rounded-full bg-brand/10 px-3 py-1 text-sm font-bold text-brand">
+                  Free build — first 5 clients
+                </span>
+                <div className="mt-3 flex items-end gap-2">
+                  <span className="text-5xl font-extrabold tracking-tight text-ink">$0</span>
+                  <span className="pb-1.5 text-slate">
+                    build <span className="text-slate/60 line-through">$150</span>
                   </span>
-                )}
+                </div>
+                <p className="mt-1 text-slate">
+                  + <span className="font-semibold text-ink">$50/month</span> care plan — hosting, updates, security &amp; support
+                </p>
               </div>
-              {startingPrice && (
-                <p className="mt-1 text-sm text-slate">Starting price — final quote after your free consult</p>
-              )}
 
               <a
                 href={bookHref}
@@ -81,8 +71,8 @@ export default function Pricing() {
               </ul>
 
               <p className="mt-8 border-t border-line pt-6 text-center text-sm text-slate">
-                Optional <span className="font-semibold text-ink">hosting &amp; care plan</span> available to
-                keep your site updated, backed up, and secure.
+                Limited time — after our first 5 clients, builds start at{" "}
+                <span className="font-semibold text-ink">$150</span> + the $50/mo care plan.
               </p>
             </div>
           </div>
