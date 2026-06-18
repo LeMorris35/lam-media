@@ -46,7 +46,8 @@ export default function Pricing() {
                   </span>
                 </div>
                 <p className="mt-1 text-slate">
-                  + <span className="font-semibold text-ink">$50/month</span> care plan — hosting, updates, security &amp; support
+                  + <span className="font-semibold text-ink">$50/month</span>{" "}
+                  care plan — hosting, updates, security &amp; support
                 </p>
               </div>
 
