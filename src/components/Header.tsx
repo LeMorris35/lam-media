@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { site, asset, bookHref, bookExternal } from "@/lib/site";
 import { Menu, X, ArrowRight } from "./icons";
 
@@ -57,6 +58,12 @@ export default function Header() {
               {link.label}
             </a>
           ))}
+          <Link
+            href="/pay"
+            className="text-sm font-medium text-slate transition-colors hover:text-brand"
+          >
+            Make a Payment
+          </Link>
           <a
             href={bookHref}
             {...(bookExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
@@ -93,6 +100,13 @@ export default function Header() {
                 {link.label}
               </a>
             ))}
+            <Link
+              href="/pay"
+              onClick={() => setOpen(false)}
+              className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-mist"
+            >
+              Make a Payment
+            </Link>
             <a
               href={bookHref}
               {...(bookExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
