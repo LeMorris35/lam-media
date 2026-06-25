@@ -27,44 +27,49 @@ export default function SpartansHome() {
               "repeating-linear-gradient(115deg, var(--tm-green) 0 3px, transparent 3px 60px)",
           }}
         />
-        <img
-          src={asset("/spartans/logo.png")}
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none absolute right-0 top-1/2 hidden h-[30rem] w-auto -translate-y-1/2 opacity-90 drop-shadow-2xl lg:block xl:right-6"
-        />
+        <div className="relative mx-auto max-w-6xl px-5 py-16 sm:py-20">
+          <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:justify-center lg:gap-14 lg:text-left">
+            {/* Big logo — left of the title on desktop, centered on top when stacked */}
+            <img
+              src={asset("/spartans/logo.png")}
+              alt="Missouri Spartans logo"
+              className="h-48 w-auto shrink-0 drop-shadow-2xl sm:h-60 lg:h-80"
+            />
 
-        <div className="relative mx-auto max-w-6xl px-5 py-20 sm:py-28">
-          <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--tm-gold)]">
-            <span className="h-px w-8 bg-[var(--tm-gold)]" />
-            {team.league} · {team.city}
-          </p>
-          <h1 className="font-display mt-5 max-w-3xl text-6xl uppercase leading-[0.92] text-white sm:text-7xl lg:text-8xl">
-            Missouri{" "}
-            <span className="text-[var(--tm-gold)]">Spartans</span> Football
-          </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
-            {team.intro}
-          </p>
-          <p className="mt-4 font-display text-2xl uppercase italic text-[var(--tm-green)]">
-            {team.tagline}
-          </p>
+            {/* Title + copy */}
+            <div className="max-w-xl">
+              <p className="flex flex-wrap items-center justify-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--tm-gold)] lg:justify-start">
+                <span className="h-px w-8 bg-[var(--tm-gold)]" />
+                {team.league} · {team.city}
+              </p>
+              <h1 className="font-display mt-4 text-5xl uppercase leading-[0.95] text-white sm:text-6xl lg:text-7xl">
+                Missouri{" "}
+                <span className="text-[var(--tm-gold)]">Spartans</span> Football
+              </h1>
+              <p className="mx-auto mt-5 max-w-md text-lg leading-relaxed text-white/80 lg:mx-0">
+                {team.intro}
+              </p>
+              <p className="mt-4 font-display text-2xl uppercase italic text-[var(--tm-green)]">
+                {team.tagline}
+              </p>
 
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/demos/spartans/schedule"
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-[var(--tm-gold)] px-7 py-3.5 text-base font-bold uppercase tracking-wide text-[var(--tm-ink)] transition-colors hover:bg-[var(--tm-gold-dark)]"
-            >
-              <Calendar className="h-5 w-5" />
-              2025 Schedule
-            </Link>
-            <Link
-              href="/demos/spartans/roster"
-              className="inline-flex items-center justify-center gap-2 rounded-md border border-white/30 px-7 py-3.5 text-base font-bold uppercase tracking-wide text-white transition-colors hover:border-[var(--tm-gold)] hover:text-[var(--tm-gold)]"
-            >
-              Meet the Roster
-              <ArrowRight className="h-5 w-5" />
-            </Link>
+              <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
+                <Link
+                  href="/demos/spartans/schedule"
+                  className="inline-flex items-center justify-center gap-2 rounded-md bg-[var(--tm-gold)] px-7 py-3.5 text-base font-bold uppercase tracking-wide text-[var(--tm-ink)] transition-colors hover:bg-[var(--tm-gold-dark)]"
+                >
+                  <Calendar className="h-5 w-5" />
+                  2025 Schedule
+                </Link>
+                <Link
+                  href="/demos/spartans/roster"
+                  className="inline-flex items-center justify-center gap-2 rounded-md border border-white/30 px-7 py-3.5 text-base font-bold uppercase tracking-wide text-white transition-colors hover:border-[var(--tm-gold)] hover:text-[var(--tm-gold)]"
+                >
+                  Meet the Roster
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
 
