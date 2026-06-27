@@ -36,15 +36,15 @@ function AllFiftyLogo({ className }: { className?: string }) {
         />
       </defs>
       <rect width="100" height="100" rx="24" fill="url(#af-grad)" />
-      <use href="#af-star" transform="translate(26 25)" />
-      <use href="#af-star" transform="translate(74 25)" />
-      <use href="#af-star" transform="translate(19 52)" />
-      <use href="#af-star" transform="translate(81 52)" />
+      <use href="#af-star" transform="translate(20 24)" />
+      <use href="#af-star" transform="translate(80 24)" />
+      <use href="#af-star" transform="translate(12 54) scale(0.8)" />
+      <use href="#af-star" transform="translate(88 54) scale(0.8)" />
       <text
         x="50"
-        y="44"
+        y="37"
         textAnchor="middle"
-        fontFamily="Sora, system-ui, sans-serif"
+        fontFamily="Sora, Verdana, Arial, sans-serif"
         fontWeight={700}
         fontSize={19}
         fill="#fff"
@@ -53,9 +53,9 @@ function AllFiftyLogo({ className }: { className?: string }) {
       </text>
       <text
         x="50"
-        y="86"
+        y="81"
         textAnchor="middle"
-        fontFamily="Sora, system-ui, sans-serif"
+        fontFamily="Sora, Verdana, Arial, sans-serif"
         fontWeight={800}
         fontSize={40}
         fill="#fff"
