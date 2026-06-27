@@ -8,7 +8,7 @@
 export const site = {
   name: "LAM Media & Web Company",
   shortName: "LAM",
-  tagline: "Your Local Partner for Digital Growth",
+  tagline: "We build apps people actually use",
 
   // TODO: update to your real domain once you have one (used for SEO/share links)
   url: "https://lammediaweb.com",
@@ -21,7 +21,7 @@ export const site = {
   phone: "(660) 351-3634",
 
   // Calendly scheduler — all "Book a Free Consult" buttons open this.
-  bookingUrl: "https://calendly.com/lammediaweb/30min",
+  bookingUrl: "",
 
   // Formspree endpoint — the contact form submits here and emails you.
   formspreeEndpoint: "https://formspree.io/f/xaqzzvwp",
@@ -32,11 +32,35 @@ export const site = {
     instagram: "",
   },
 
-  // Stripe Payment Links (Stripe-hosted checkout) — used on the /pay page.
+  // Stripe Payment Links (kept for the older /pay route; not shown in the app-studio site).
   payments: {
-    carePlan: "https://buy.stripe.com/dRmbJ04Ne9F60kHf9D9EI01", // $50/mo care plan
-    buildFee: "https://buy.stripe.com/9B68wOcfGg3ud7t5z39EI00", // $150 one-time build
+    carePlan: "https://buy.stripe.com/dRmbJ04Ne9F60kHf9D9EI01",
+    buildFee: "https://buy.stripe.com/9B68wOcfGg3ud7t5z39EI00",
   },
+
+  // The apps LAM Media builds — the showcase on the homepage.
+  apps: [
+    {
+      name: "LifeMetricOS",
+      tagline: "Your whole life, in one dashboard.",
+      description:
+        "A personal OS that brings your academics, finances, and daily life together — track your GPA, manage your money, and stay on top of everything in one clean dashboard.",
+      url: "https://lifemetricos.com",
+      cta: "Open the app",
+      status: "live", // "live" | "coming-soon"
+      preview: "dashboard", // "dashboard" | "map"
+    },
+    {
+      name: "All Fifty",
+      tagline: "Track every state you explore.",
+      description:
+        "An interactive travel map to log the states you've visited, journal your trips, and watch your 50-state map fill in over time.",
+      url: "",
+      cta: "Coming soon",
+      status: "coming-soon",
+      preview: "map",
+    },
+  ],
 } as const;
 
 /**

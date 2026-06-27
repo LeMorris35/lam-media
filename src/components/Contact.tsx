@@ -59,14 +59,14 @@ export default function Contact() {
         {/* Left: heading + contact info */}
         <div>
           <span className="text-sm font-bold uppercase tracking-wider text-brand-light">
-            Get Started
+            Get in touch
           </span>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-            Let&apos;s build something that grows your business
+            Have a question, idea, or want to work together?
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-white/70">
-            Tell me a little about your business and what you need. I&apos;ll get
-            back to you within one business day — no pressure, no obligation.
+            Feedback on an app, a collaboration, or just want to say hi — drop a
+            line and I&apos;ll get back to you within a day or two.
           </p>
 
           {site.bookingUrl && (
@@ -118,7 +118,7 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid gap-5 sm:grid-cols-2">
                 <Field label="Your name" name="name" required />
-                <Field label="Business name" name="business" />
+                <Field label="Company (optional)" name="business" />
               </div>
               <div className="grid gap-5 sm:grid-cols-2">
                 <Field label="Email" name="email" type="email" required />
@@ -133,7 +133,7 @@ export default function Contact() {
                   name="message"
                   required
                   rows={4}
-                  placeholder="Tell me about your business and what you're looking for…"
+                  placeholder="Tell me about your project, idea, or question…"
                   className="w-full rounded-xl border border-line bg-mist px-4 py-3 text-ink outline-none transition-colors placeholder:text-slate/60 focus:border-brand focus:bg-white focus:ring-2 focus:ring-brand/20"
                 />
               </div>

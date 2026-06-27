@@ -1,13 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import { site, asset } from "@/lib/site";
 import { Mail, Phone, MapPin } from "./icons";
 
 const quickLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Our Work", href: "#work" },
-  { label: "Process", href: "#process" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Apps", href: "#apps" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
@@ -31,8 +27,8 @@ export default function Footer() {
               className="h-12 w-auto"
             />
             <p className="mt-4 max-w-sm leading-relaxed">
-              {site.tagline}. Affordable, professional websites for local
-              businesses across {site.serviceArea}.
+              {site.tagline}. An independent app studio building practical tools,
+              maps, and web apps.
             </p>
             <div className="mt-5 flex gap-3">
               {site.social.facebook && (
@@ -77,11 +73,6 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
-              <li>
-                <Link href="/pay" className="transition-colors hover:text-white">
-                  Make a Payment
-                </Link>
-              </li>
             </ul>
           </div>
 

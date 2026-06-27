@@ -15,18 +15,18 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: `${site.name} | Web Design in ${site.city}`,
-  description: `Affordable, professional websites for small businesses in ${site.serviceArea}. ${site.tagline}.`,
+  title: `${site.name} — Independent App Studio`,
+  description: `${site.name} is an independent app studio. ${site.tagline} — practical tools, maps, and web apps like LifeMetricOS.`,
   keywords: [
-    "web design Clinton MO",
-    "small business website Clinton Missouri",
-    "Henry County web design",
-    "website designer near me",
-    "affordable website small business",
+    "LAM Media",
+    "app studio",
+    "indie app developer",
+    "LifeMetricOS",
+    "All Fifty travel map app",
   ],
   openGraph: {
-    title: `${site.name} | Web Design in ${site.city}`,
-    description: `Affordable, professional websites for small businesses in ${site.serviceArea}.`,
+    title: `${site.name} — Independent App Studio`,
+    description: `${site.tagline}. Practical tools, maps, and web apps from an independent studio.`,
     type: "website",
     images: ["/lam-banner.png"],
   },

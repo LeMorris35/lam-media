@@ -2,16 +2,13 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { site, asset, bookHref, bookExternal } from "@/lib/site";
+import { site, asset } from "@/lib/site";
 import { Menu, X, ArrowRight } from "./icons";
 
 const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Our Work", href: "#work" },
-  { label: "Process", href: "#process" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Apps", href: "#apps" },
   { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Header() {
@@ -58,18 +55,11 @@ export default function Header() {
               {link.label}
             </a>
           ))}
-          <Link
-            href="/pay"
-            className="text-sm font-medium text-slate transition-colors hover:text-brand"
-          >
-            Make a Payment
-          </Link>
           <a
-            href={bookHref}
-            {...(bookExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+            href="#contact"
             className="inline-flex items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-dark"
           >
-            Book a Free Consult
+            Get in Touch
             <ArrowRight className="h-4 w-4" />
           </a>
         </nav>
@@ -100,20 +90,12 @@ export default function Header() {
                 {link.label}
               </a>
             ))}
-            <Link
-              href="/pay"
-              onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-3 text-base font-medium text-ink hover:bg-mist"
-            >
-              Make a Payment
-            </Link>
             <a
-              href={bookHref}
-              {...(bookExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              href="#contact"
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-brand px-5 py-3 text-base font-semibold text-white"
             >
-              Book a Free Consult
+              Get in Touch
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
