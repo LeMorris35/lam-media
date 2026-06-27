@@ -42,23 +42,60 @@ export const site = {
   apps: [
     {
       name: "LifeMetricOS",
-      tagline: "Your whole life, in one dashboard.",
+      tagline: "Your whole student life, in one dashboard.",
       description:
-        "A personal OS that brings your academics, finances, and daily life together — track your GPA, manage your money, and stay on top of everything in one clean dashboard.",
+        "An all-in-one life operating system for students. Pull school, money, fitness, health, and habits into one fully customizable dashboard — with a single daily Life Metric Score (0–100) that shows how consistent you've really been.",
+      features: [
+        "Academics & GPA",
+        "Money & budgeting",
+        "Fitness & health",
+        "Daily Life Metric Score",
+        "Fully customizable",
+      ],
       url: "https://lifemetricos.com",
       cta: "Open the app",
       status: "live", // "live" | "coming-soon"
+      statusLabel: "Live on web · iOS coming soon",
       preview: "dashboard", // "dashboard" | "map"
+      // Real in-app screenshots — ordered to alternate themes (dark → warm →
+      // dark → green) so the rotating gallery also shows off customization.
+      screenshots: [
+        "/apps/lifemetricos/shot-1.jpeg", // Classes (midnight)
+        "/apps/lifemetricos/shot-3.jpeg", // Calendar (warm)
+        "/apps/lifemetricos/shot-2.jpeg", // Health (dark)
+        "/apps/lifemetricos/shot-4.jpeg", // Settings (forest)
+      ] as string[],
+      logo: "layers", // "layers" | "stars"
+      accent: "#4f46e5", // brand indigo
+      gradient: "", // no gradient — solid indigo brand
     },
     {
       name: "All Fifty",
-      tagline: "Track every state you explore.",
+      tagline: "Collect all 50.",
       description:
-        "An interactive travel map to log the states you've visited, journal your trips, and watch your 50-state map fill in over time.",
+        "A playful, interactive U.S. travel tracker — set a status for every state, log trips with photos and notes, check off 127 iconic landmarks, and unlock achievements as your map fills in. Travel journal meets bucket-list game.",
+      features: [
+        "Interactive 50-state map",
+        "127 iconic landmarks",
+        "75 achievements",
+        "Trip journal + photos",
+        "Shareable map image",
+      ],
       url: "",
       cta: "Coming soon",
       status: "coming-soon",
+      statusLabel: "Coming soon",
       preview: "map",
+      // Real screenshots — the two landscape views (periwinkle dashboard + peach
+      // map) that fit the card. Hero banner + achievements panel sit in the
+      // folder too, ready to swap if we change the card shape later.
+      screenshots: [
+        "/apps/allfifty/shot-2.jpeg", // dashboard + stats (periwinkle)
+        "/apps/allfifty/shot-3.jpeg", // map (sunset/peach)
+      ] as string[],
+      logo: "stars",
+      accent: "#6366f1", // indigo (middle of the brand gradient — readable on white)
+      gradient: "linear-gradient(135deg, #38bdf8 0%, #6366f1 50%, #d946ef 100%)",
     },
   ],
 } as const;
